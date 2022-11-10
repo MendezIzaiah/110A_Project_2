@@ -8,8 +8,8 @@ import numpy as np
 with st.sidebar:
     selected = option_menu(
         menu_title="Main Menu",
-        options=['Home','Temp1','Temp2','Temp3'],
-        icons=['house','gear','gear','gear'],
+        options=['Home','Segment Profits','Temp2','Temp3'],
+        icons=['house','box-arrow-in-up-right','gear','gear'],
         menu_icon="cast",
         default_index=0,
     
@@ -18,7 +18,7 @@ with st.sidebar:
 def home():
     pass
 
-def temp1():
+def Segment_Profits():
     st.markdown(
     """
     # Table of Segment Profits by Year
@@ -69,9 +69,9 @@ def temp3():
 
 if selected == 'Home':
     st.title(f'You have selected {selected}')
-if selected == 'Temp1':
+if selected == 'Segment Profits':
    # st.title(f'You have selected {selected}')
-    temp1()
+    Segment_Profits()
 if selected == 'Temp2':
     st.title(f'You have selected {selected}')
 if selected == 'Temp3':
