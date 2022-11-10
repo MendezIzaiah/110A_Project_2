@@ -4,12 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-#dependencies:
-#pip install streamlit
-#pip install streamlit-option-menu
-#to run the webapp:
-#streamlit main.py
-
 #creating sidebar menu 
 with st.sidebar:
     selected = option_menu(
@@ -25,8 +19,6 @@ def home():
     pass
 
 def temp1():
-    #pass
-    
     st.markdown(
     """
     # Table of Segment Profits by Year
@@ -35,7 +27,8 @@ def temp1():
     )
     #display the df 
     dfp = pd.read_pickle('./data/yearly_profit.pkl')
-    st.dataframe(dfp,400,200)
+    #adding style format while passing in df
+    st.dataframe(dfp.style.format('${:,.2f}'),400,200)
 
     st.markdown('# Visualization')
     #present a chart of that df  
