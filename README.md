@@ -21,7 +21,8 @@ Github [documentation](https://docs.github.com/en/repositories/creating-and-mana
 
 # Running webapp
 
-Execute the following command after cloning the repository:
+After cloning the repository, open a terminal at the folder  
+Finally execute the following command to run the webapp:
 ```py
 streamlit run main.py
 ```
