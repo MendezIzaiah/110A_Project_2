@@ -17,7 +17,7 @@ pip install pandas streamlit streamlit-option-menu matplotlib numpy
 ```
 
 ## Cloning a repository
-Github [documentation] (https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on how to clone a repository
+Github [documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on how to clone a repository
 
 # To run the menu execute the following after cloning the repository:
 ```py
