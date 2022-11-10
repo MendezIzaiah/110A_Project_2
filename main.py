@@ -2,8 +2,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-import altair as alt
 import numpy as np
 
 #dependencies:
