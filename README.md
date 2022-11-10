@@ -3,13 +3,16 @@
 - Data comes from the assigned Tableau sales data 
 
 ## Dependencies needed to run:
-Below are the libraries needed to run the menu. Please run the following commands in the terminal before running:
+Below are the libraries needed to run the menu. 
+- pandas
+- streamlit
+- streamlit-option-menu
+- matplotlib
+- numpy
+
+Please copy and run the following command if none of these libraries are installed in the terminal before running:
 ```py
-pip install pandas
-pip install streamlit
-pip install streamlit-option-menu
-pip install matplotlib
-pip install numpy
+pip install pandas streamlit streamlit-option-menu matplotlib numpy
 ```
 
 # To run the menu execute the following after cloning the repository:
