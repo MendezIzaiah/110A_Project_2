@@ -12,12 +12,12 @@ Below are the libraries needed to run the menu.
 - numpy
 
 Please copy and run the following command if none of these libraries are installed in the terminal before running:
-```py
+```
 pip install pandas streamlit streamlit-option-menu matplotlib numpy
 ```
 
 Or install requirements from text file:
-```py
+```
 pip install -r requirements.txt
 ```
 
