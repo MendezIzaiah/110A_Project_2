@@ -1,0 +1,5 @@
+matplotlib==3.6.0
+numpy==1.23.3
+pandas==1.5.0
+streamlit==1.14.0
+streamlit_option_menu==0.3.2
