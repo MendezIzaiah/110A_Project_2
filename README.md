@@ -16,6 +16,11 @@ Please copy and run the following command if none of these libraries are install
 pip install pandas streamlit streamlit-option-menu matplotlib numpy
 ```
 
+Or install requirements from text file:
+```py
+pip install -r requirements.txt
+```
+
 ## Cloning a repository
 Github [documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on how to clone a repository
 
