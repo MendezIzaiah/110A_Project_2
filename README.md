@@ -31,3 +31,5 @@ Finally execute the following command to run the webapp:
 ```py
 streamlit run main.py
 ```
+
+Can run inside a virtual environment as well. Streamlit [documentation](https://docs.streamlit.io/library/get-started/installation) on how to run inside virtual environment.
