@@ -4,11 +4,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+xl=pd.ExcelFile("./data/TableauSalesData.xlsx") 
+SalesData = xl.parse("Orders") 
+
 #creating sidebar menu 
 with st.sidebar:
     selected = option_menu(
         menu_title="Main Menu",
-        options=['Home','Segment Profits','Temp2','Temp3'],
+        options=['Home','Segment Profits','Sub-Category Profits','Temp3'],
         icons=['house','box-arrow-in-up-right','gear','gear'],
         menu_icon="cast",
         default_index=0,
@@ -18,7 +21,7 @@ with st.sidebar:
 def home():
     pass
 
-def Segment_Profits():
+def segment_Profits():
     st.markdown(
     """
     # Table of Segment Profits by Year
@@ -61,8 +64,19 @@ def Segment_Profits():
 
     st.pyplot(fig)
 
-def temp2():
-    pass
+def sub_cat_profit():
+    st.markdown(
+    """
+    # Total Sub-Category profits
+
+    """
+    )
+    #display the df
+    df = SalesData[["Sub-Category", "Profit", "Sales"]].groupby(by="Sub-Category").sum().sort_values(by="Profit")
+    #adding formatting
+    st.dataframe(df.style.format('${:,.2f}'),400,400)
+    
+    #display for chart if needed
 
 def temp3():
     pass
@@ -70,10 +84,9 @@ def temp3():
 if selected == 'Home':
     st.title(f'You have selected {selected}')
 if selected == 'Segment Profits':
-   # st.title(f'You have selected {selected}')
-    Segment_Profits()
-if selected == 'Temp2':
-    st.title(f'You have selected {selected}')
+    segment_Profits()
+if selected == 'Sub-Category Profits':
+    sub_cat_profit()
 if selected == 'Temp3':
     st.title(f'You have selected {selected}')
 
