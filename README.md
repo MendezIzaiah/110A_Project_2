@@ -4,7 +4,6 @@
 - Data comes from the assigned Tableau sales data 
 
 ## Dependencies needed to run:
-Below are the libraries needed to run the menu. 
 - pandas
 - streamlit
 - streamlit-option-menu
