@@ -11,7 +11,7 @@ SalesData = xl.parse("Orders")
 with st.sidebar:
     selected = option_menu(
         menu_title="Main Menu",
-        options=['Home','Segment Profits','Sub-Category Profits','Temp3'],
+        options=['Home','Segment Profits','Sub-Category Profits','Consumer Sub-Category'],
         icons=['house','box-arrow-in-up-right','gear','gear'],
         menu_icon="cast",
         default_index=0,
@@ -23,7 +23,7 @@ def home():
         """
         # Plan to increase Profits by 10%
 
-        ## Below are two approaches we can take to increase profits by 10%:
+        ## Approaches that can increase profits by 10%:
         - Reduce unprofitable products and subcategories to provide the top 50% most frequent accounts with requested products
         - Provide a concentrated marketing segment recommendation in support of Natasha's goal of increasing profit by 10%
 
@@ -98,8 +98,18 @@ def sub_cat_profit():
 
     #display for chart if needed
 
-def temp3():
-    pass
+def con_sub():
+    st.markdown(
+        """
+        # Consumer Sub-Category Profits 
+        We can see that the consmer sub-categories perform well
+        """
+        
+    )
+    only_consumer = SalesData[SalesData['Segment'] == 'Consumer']
+    consumer_subcat_profit = only_consumer[['Sub-Category','Profit']].groupby('Sub-Category').sum().round().sort_values('Profit',ascending= False)
+
+    st.dataframe(consumer_subcat_profit.style.format('${:,.2f}'))
 
 if selected == 'Home':
     home()
@@ -107,7 +117,6 @@ if selected == 'Segment Profits':
     segment_profits()
 if selected == 'Sub-Category Profits':
     sub_cat_profit()
-if selected == 'Temp3':
-    st.title(f'You have selected {selected}')
-
+if selected == 'Consumer Sub-Category':
+    con_sub()
 
