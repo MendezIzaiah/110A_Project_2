@@ -30,7 +30,7 @@ def home():
         """
     )
 
-def segment_Profits():
+def segment_profits():
     st.markdown(
     """
     # Table of Segment Profits by Year
@@ -104,7 +104,7 @@ def temp3():
 if selected == 'Home':
     home()
 if selected == 'Segment Profits':
-    segment_Profits()
+    segment_profits()
 if selected == 'Sub-Category Profits':
     sub_cat_profit()
 if selected == 'Temp3':
