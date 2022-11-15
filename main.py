@@ -19,7 +19,16 @@ with st.sidebar:
     )
 
 def home():
-    pass
+    st.markdown(
+        """
+        # Plan to increase Profits by 10%
+
+        ## Below are two approaches we can take to increase profits by 10%:
+        - Reduce unprofitable products and subcategories to provide the top 50% most frequent accounts with requested products
+        - Provide a concentrated marketing segment recommendation in support of Natasha's goal of increasing profit by 10%
+
+        """
+    )
 
 def segment_Profits():
     st.markdown(
@@ -93,7 +102,7 @@ def temp3():
     pass
 
 if selected == 'Home':
-    st.title(f'You have selected {selected}')
+    home()
 if selected == 'Segment Profits':
     segment_Profits()
 if selected == 'Sub-Category Profits':
