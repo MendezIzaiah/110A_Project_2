@@ -76,6 +76,17 @@ def sub_cat_profit():
     #adding formatting
     st.dataframe(df.style.format('${:,.2f}'),400,400)
     
+    #digging deeper into the underperforming sub-categories
+    st.markdown(
+        """
+        ## Investigating the underperforming sub-categories
+        partial list of products from sub-category table
+
+        """
+    )
+    df_tbs = SalesData[['Product Name','Profit']].loc[SalesData["Sub-Category"].isin(['Tables','Bookcases','Supplies'])].groupby("Product Name").sum().round().sort_values("Profit")
+    st.dataframe(df_tbs.style.format('${:,.2f}'))
+
     #display for chart if needed
 
 def temp3():
