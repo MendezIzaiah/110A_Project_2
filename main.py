@@ -111,6 +111,29 @@ def con_sub():
 
     st.dataframe(consumer_subcat_profit.style.format('${:,.2f}'))
 
+    st.markdown(
+        """
+        # All Consumer products 
+        Though there are few underperforming sub-categories, we can see there are several underperforming products
+        """
+    )
+
+    only_consumer = SalesData[SalesData['Segment'] == 'Consumer']
+    only_consumer_prod_prof = only_consumer[['Product Name','Profit']].groupby('Product Name').sum().round().sort_values('Profit',ascending = False)
+    only_consumer_prod_prof = only_consumer_prod_prof.reset_index()
+
+    fig, ax = plt.subplots()
+    plt.scatter(data = only_consumer_prod_prof, x = "Product Name", y = "Profit")
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_ylabel('Profit')
+    ax.set_xlabel('Products')
+    ax.set_title('Profits of all Consumer Products')
+    ax.set_xticks([''])
+    #ax.legend() 
+
+    st.pyplot(fig)
+
 if selected == 'Home':
     home()
 if selected == 'Segment Profits':
