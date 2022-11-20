@@ -12,7 +12,7 @@ with st.sidebar:
     selected = option_menu(
         menu_title="Main Menu",
         options=['Home','Segment Profits','Sub-Category Profits','Consumer Sub-Category'],
-        icons=['house','box-arrow-in-up-right','gear','gear'],
+        icons=['house','box-arrow-in-up-right','box-arrow-in-up-right','box-arrow-in-up-right'],
         menu_icon="cast",
         default_index=0,
     
@@ -76,7 +76,7 @@ def segment_profits():
 def sub_cat_profit():
     st.markdown(
     """
-    # Total Sub-Category profits
+    # Total Sub-Category profits and sales
 
     """
     )
@@ -89,7 +89,7 @@ def sub_cat_profit():
     st.markdown(
         """
         ## Investigating the underperforming sub-categories
-        partial list of products from sub-category table
+        Partial list of products from sub-category table
 
         """
     )
