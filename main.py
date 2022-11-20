@@ -77,6 +77,73 @@ class charts:
 
         st.pyplot(fig)
 
+class pagez:
+    def home():
+        st.markdown(
+            """
+            # Plan to increase Profits by 10%
+
+            ## Approaches that can increase profits by 10%:
+            - Reduce unprofitable products and subcategories to provide the top 50% most frequent accounts with requested products
+            - Provide a concentrated marketing segment recommendation in support of Natasha's goal of increasing profit by 10%
+
+            """
+        )
+    
+    def segment_profits():
+        st.markdown(
+        """
+        # Table of Segment Profits by Year
+        
+        """
+        )
+        #display the df 
+        data_frames.seg_prof()
+
+        st.markdown('# Visualization')
+        
+        charts.seg_profits()
+
+    def sub_cat_profit():
+        st.markdown(
+        """
+        # Total Sub-Category profits and sales
+
+        """
+        )
+        #display the df
+        data_frames.sub_cat_prof()
+        
+        #digging deeper into the underperforming sub-categories
+        st.markdown(
+            """
+            ## Investigating the underperforming sub-categories
+            List of products from sub-category table
+
+            """
+        )
+        #other df here
+        data_frames.sub_cat_prod()
+
+    def con_sub():
+        st.markdown(
+            """
+            # Consumer Sub-Category Profits 
+            We can see that the consmer sub-categories perform well
+            """
+            
+        )
+        #df here
+        data_frames.con_sub_cat_prof()
+
+        st.markdown(
+            """
+            # All Consumer products 
+            Though there are few underperforming sub-categories, we can see there are several underperforming products
+            """
+        )
+        
+        charts.consumer_scatterplt()
 
 #creating sidebar menu 
 with st.sidebar:
@@ -89,82 +156,12 @@ with st.sidebar:
     
     )
 
-
-def home():
-    st.markdown(
-        """
-        # Plan to increase Profits by 10%
-
-        ## Approaches that can increase profits by 10%:
-        - Reduce unprofitable products and subcategories to provide the top 50% most frequent accounts with requested products
-        - Provide a concentrated marketing segment recommendation in support of Natasha's goal of increasing profit by 10%
-
-        """
-    )
-
-def segment_profits():
-    st.markdown(
-    """
-    # Table of Segment Profits by Year
-    
-    """
-    )
-    #display the df 
-    data_frames.seg_prof()
-
-    st.markdown('# Visualization')
-    
-    charts.seg_profits()
-
-def sub_cat_profit():
-    st.markdown(
-    """
-    # Total Sub-Category profits and sales
-
-    """
-    )
-    #display the df
-    data_frames.sub_cat_prof()
-    
-    #digging deeper into the underperforming sub-categories
-    st.markdown(
-        """
-        ## Investigating the underperforming sub-categories
-        List of products from sub-category table
-
-        """
-    )
-    #other df here
-    data_frames.sub_cat_prod()
-
-    
-
-def con_sub():
-    st.markdown(
-        """
-        # Consumer Sub-Category Profits 
-        We can see that the consmer sub-categories perform well
-        """
-        
-    )
-    #df here
-    data_frames.con_sub_cat_prof()
-
-    st.markdown(
-        """
-        # All Consumer products 
-        Though there are few underperforming sub-categories, we can see there are several underperforming products
-        """
-    )
-    
-    charts.consumer_scatterplt()
-
 if selected == 'Home':
-    home()
+    pagez.home()
 if selected == 'Segment Profits':
-    segment_profits()
+    pagez.segment_profits()
 if selected == 'Sub-Category Profits':
-    sub_cat_profit()
+    pagez.sub_cat_profit()
 if selected == 'Consumer Sub-Category':
-    con_sub()
+    pagez.con_sub()
 
