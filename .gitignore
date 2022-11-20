@@ -39,3 +39,7 @@ Thumbs.db
 # python files #
 ################
 __pycache__/
+
+# virtual environment #
+#######################
+venv/
