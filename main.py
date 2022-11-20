@@ -89,7 +89,7 @@ def sub_cat_profit():
     st.markdown(
         """
         ## Investigating the underperforming sub-categories
-        Partial list of products from sub-category table
+        List of products from sub-category table
 
         """
     )
