@@ -2,10 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 xl=pd.ExcelFile("./data/TableauSalesData.xlsx") 
 SalesData = xl.parse("Orders") 
 dfp = pd.read_pickle('./data/yearly_profit.pkl')
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 class data_frames:
     def seg_prof():
@@ -31,6 +33,15 @@ class data_frames:
         consumer_subcat_profit = only_consumer[['Sub-Category','Profit']].groupby('Sub-Category').sum().round().sort_values('Profit',ascending= False)
 
         st.dataframe(consumer_subcat_profit.style.format('${:,.2f}'))
+
+    def bookcase_prof_sales():
+        #made by Jonathan
+        BookcasesSales = SalesData.loc[SalesData["Sub-Category"]=="Bookcases"]
+        BookcasesSalesYear = BookcasesSales.copy()
+        BookcasesSalesYear["Year"] = BookcasesSalesYear["Order Date"].dt.year
+        BookcasesSalesProf = BookcasesSalesYear[["Year", "Sales", "Profit"]].groupby("Year").sum()
+
+        st.dataframe(BookcasesSalesProf.style.format('${:,.2f}'))
 
 class charts:
     def consumer_scatterplt():
@@ -79,6 +90,20 @@ class charts:
 
         #fig.tight_layout()
         #plt.show()
+
+        st.pyplot(fig)
+
+    def cat_plot():
+        #Made by Jonathan
+        BookcasesRegion = SalesData.loc[SalesData["Sub-Category"]=="Bookcases"]
+        BookcasesSalesRegion = BookcasesRegion.copy()
+        BookcasesRegionBar = BookcasesSalesRegion[["Region", "Sales", "Profit"]].groupby("Region").sum()
+        BookcasesRegionBar = BookcasesRegionBar.reset_index()
+        BookcasesRegionBarGraph = pd.melt (BookcasesRegionBar, id_vars="Region",var_name="Bookcases",value_name= "Regional Numbers")
+
+        CatPlot1 = sns.catplot(x="Region", y="Regional Numbers", hue="Bookcases", data = BookcasesRegionBarGraph, kind = "bar")
+        CatPlot1.fig.suptitle("Regional Bookcases Profit and Sales")
+        fig = plt.show()
 
         st.pyplot(fig)
 
@@ -149,3 +174,37 @@ class pagez:
         )
         
         charts.consumer_scatterplt()
+
+    def book_prof():
+        st.markdown(
+           """
+           # All bookcase Profit and Sales by year
+
+           """
+        )
+
+        #Call the df here
+        data_frames.bookcase_prof_sales()
+
+        st.markdown(
+          """
+          # Visualization
+          As we can see high sales does not necessariy correlate to profit
+          """
+        )
+        #call the visualization of df above here
+        charts.cat_plot()
+        #Call next df here
+
+        #call last visualization here
+
+
+
+
+
+
+
+
+
+
+
