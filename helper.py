@@ -35,7 +35,7 @@ class data_frames:
         st.dataframe(consumer_subcat_profit.style.format('${:,.2f}'))
 
     def bookcase_prof_sales():
-        #made by Jonathan
+        #Made by Jonathan
         BookcasesSales = SalesData.loc[SalesData["Sub-Category"]=="Bookcases"]
         BookcasesSalesYear = BookcasesSales.copy()
         BookcasesSalesYear["Year"] = BookcasesSalesYear["Order Date"].dt.year
