@@ -9,20 +9,24 @@ dfp = pd.read_pickle('./data/yearly_profit.pkl')
 
 class data_frames:
     def seg_prof():
+       #Made by Izaiah 
         dfp = pd.read_pickle('./data/yearly_profit.pkl')
         #adding style format while passing in df
         st.dataframe(dfp.style.format('${:,.2f}'),400,200)
 
     def sub_cat_prof():
+       #Made by Jonathan 
         df = SalesData[["Sub-Category", "Profit", "Sales"]].groupby(by="Sub-Category").sum().sort_values(by="Profit")
         #adding formatting
         st.dataframe(df.style.format('${:,.2f}'),400,400)
     
     def sub_cat_prod():
+       #Made by Jonathan 
         df_tbs = SalesData[['Product Name','Profit']].loc[SalesData["Sub-Category"].isin(['Tables','Bookcases','Supplies'])].groupby("Product Name").sum().round().sort_values("Profit")
         st.dataframe(df_tbs.style.format('${:,.2f}'))
 
     def con_sub_cat_prof():
+       #Made by Izaiah 
         only_consumer = SalesData[SalesData['Segment'] == 'Consumer']
         consumer_subcat_profit = only_consumer[['Sub-Category','Profit']].groupby('Sub-Category').sum().round().sort_values('Profit',ascending= False)
 
@@ -30,6 +34,7 @@ class data_frames:
 
 class charts:
     def consumer_scatterplt():
+       #Made by Izaiah 
         only_consumer = SalesData[SalesData['Segment'] == 'Consumer']
         only_consumer_prod_prof = only_consumer[['Product Name','Profit']].groupby('Product Name').sum().round().sort_values('Profit',ascending = False)
         only_consumer_prod_prof = only_consumer_prod_prof.reset_index()
@@ -47,6 +52,7 @@ class charts:
         st.pyplot(fig)
 
     def seg_profits():
+       #Made by Izaiah 
         labels = dfp.index
 
         cons = dfp['Consumer'] 
