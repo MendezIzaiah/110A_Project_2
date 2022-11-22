@@ -4,18 +4,7 @@
 - Data comes from the assigned Tableau sales data 
 
 ## Dependencies needed to run:
-- pandas
-- streamlit
-- streamlit-option-menu
-- matplotlib
-- numpy
-
-Please copy and run the following command if none of these libraries are installed in the terminal before running:
-```
-pip install pandas streamlit streamlit-option-menu matplotlib numpy
-```
-
-Or install requirements from text file:
+Install requirements from text file:
 ```
 pip install -r requirements.txt
 ```
